@@ -1,0 +1,4 @@
+deep_translator_key = 'de06403b5fda5f896b9b7c23df3e7c0a'
+deepL_key = '48dc7694-c188-d909-6c15-54bb8010be5b:fx'
+OPENAI_API_KEY='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'
+

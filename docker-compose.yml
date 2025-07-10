@@ -1,0 +1,12 @@
+services:
+  jupyter:
+    build: .
+    container_name: jupyter-tf-extended
+    ports:
+      - "8888:8888"   # Jupyter
+      - "4040:4040"   # Spark UI (if needed)
+      - "8050:8050"   # Dash (if needed)
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes

@@ -1,0 +1,5 @@
+usr = ''
+pwd = ''
+deepL_key = ''
+ipgeolocation_key = ''
+stadia_key=''
