@@ -74,7 +74,7 @@ RUN python -m spacy download en_core_web_sm && \
     python -m spacy download en_core_web_md && \
     python -m spacy download en_core_web_lg
 
-# copy repo files
+# copy repo files -- COMMENT OUT THIS LINE WHEN BUILDING A LOCAL DOCKER CONTAINER ON YOUR COMPUTER
 COPY . /home/jovyan/
 
 # Expose Jupyter, Spark UI, Dash ports
