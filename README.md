@@ -1,49 +1,42 @@
 # PythonDataScienceFullThrottle2e
-New repository for my  **Python Data Science Full Throttle: Introductory Artificial Intelligence (AI), Big Data and Cloud Case Studies** live training on [O'Reilly Online Learning](https://learning.oreilly.com/live-events/python-data-science-full-throttle-with-paul-deitel-introductory-artificial-intelligence-ai-big-data-and-cloud-case-studies/0636920289197/).
+This is the new repository for my  **Python Data Science Full Throttle: Introductory Artificial Intelligence (AI), Big Data and Cloud Case Studies** live training on [O'Reilly Online Learning](https://learning.oreilly.com/live-events/python-data-science-full-throttle-with-paul-deitel-introductory-artificial-intelligence-ai-big-data-and-cloud-case-studies/0636920289197/).
 
-<!--# Running the Code Examples
-The easiest way to run most of the code examples is to use the Dockerfile to create a Docker container. 
+We're working on the second editions of our Python books and videos now. Early access to some of those new materials will be available to you through this course and eventually my Python Fundamentals LiveLessons Sneak Peek. We'll be updating the videos in place in the current product at: https://learning.oreilly.com/api/v1/continue/9780135917411/ 
 
-From the folder containing the Dockerfile, run the command: 
-> `docker build -t deitelpydsft .`
- 
-From the root folder of this course's examples, run the `deitelpydsft` Docker container with the following command:
-> docker run --rm -p 8888:8888 -p 4040:4040 -it --user root \
->    -v .:/home/jovyan/work deitelpydsft start.sh jupyter lab
+# Getting the Code
+Download or clone this repository's contents onto your system. **These files are for your personal use and may not be redistributed or reposted.**
 
-Your command-line window will show you the URL to use to access the notebooks in your web browser.
+# Running the Code
+If you want to run the code, keep in mind that various examples require API keys that you'll need to aquire and add to the files. The notebooks indicate which keys you need and where to get them.
 
-# Custom Conda Environment
-Rather than using Docker, you can set up a custom Anaconda environment on your local computer. These are the commands I used. They create a custom environment named `pydsft` — you can choose any name you like:
+## Zero-Install MyBinder Environment
+I have set up the GitHub repository with a `Dockerfile` that enables you to load a zero-install environment in MyBinder.org:
 
-* Create the custom environment
+> `https://mybinder.org/v2/gh/pdeitel/PythonDataScienceFullThrottle2e/main?urlpath=lab`
 
-> conda create --name pydsft
+## Docker
+Docker users can build a local container from the `Dockerfile` in the GitHub repository. These instructions assume you have Docker Desktop installed with support for the `docker compose` command and that you've downloaded or cloned this repository to your system. Comment out the `Dockerfile` line:  
 
-* Activate the environment you just created
+> `COPY . /home/jovyan/`
+> 
+by inserting a `#` before the line as in  
 
-> conda activate pydsft
+> `# COPY . /home/jovyan/`
 
-* The following two commands install most of what you need for the content from ch11, ch12, ch13, ch14, ch15 and a good chunk of ch16—if you’re working from our books or videos, you might need to subsequently install a few other packages. **NOTE: You might want to install one package at a time from the following command as it can take a significant amount of time to resolve all the interdependencies if you do it all at once.**
- 
-> conda install nodejs jupyterlab ipympl wordcloud spacy tweepy geopy folium scikit-learn tensorflow matplotlib seaborn pymongo dnspython imageio pyaudio pydub 
+(or simply delete that line.) From a **Terminal** window (Mac) or a **Command Prompt** or **Powershell** window (Windows) change to the root folder of the repository, then execute: 
 
-> pip install -U dweepy pubnub ibm-watson tweet-preprocessor textblob deep_translator deepL 
- 
-The `pip` command is needed because a few packages are not available through the `conda` repository. 
+> `docker compose up`
 
-If any package install fails with `conda` on Windows, use `pip` to install it. 
+Once this finishes building the container, which can take several minutes depending on your connection speed, you'll see a line of text similar to the following:
 
-I'll keep this repository up-to-date with any changes I make for future presentations. 
+> `http://127.0.0.1:8888/lab?token=fb59401a105a0c5a45c52eff8e1a8469f508cad1f3a8be06`
 
-**These files are for your personal use and may not be redistributed or reposted.**
+Copy this line and paste it into your preferred web browser to launch JupyterLab.
 
+# Questions
 If you have any questions, open an issue in the Issues tab or email us: deitel at deitel dot com.
--->
-Copyright 2025 by Deitel & Associates, Inc. and Pearson Education, Inc. All Rights Reserved. 
 
-# Setup for Executing the Examples
-The notebooks contain links to my videos and book on O'Reilly Online Learning where I discuss setup issues. 
+Copyright 2025 by Deitel & Associates, Inc. and Pearson Education, Inc. All Rights Reserved. 
 
 # Our Books on Which These Examples Are Based \[NEW EDITIONS UNDER DEVELOPMENT\]
 The content of this course is based on our book <a href=https://amzn.to/2Kd8dQk target="_blank">Python for Programmers</a>, which is a subset of our book <a href=https://amzn.to/2KfCptN target="_blank">Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud.</a> 
