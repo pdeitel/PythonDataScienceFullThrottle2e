@@ -33,7 +33,7 @@ Once this finishes building the container, which can take several minutes depend
 
 > `http://127.0.0.1:8888/lab?token=fb59401a105a0c5a45c52eff8e1a8469f508cad1f3a8be06`
 
-Copy this line and paste it into your preferred web browser to launch JupyterLab.
+Copy **your system's version of this line** and paste it into your preferred web browser to launch JupyterLab.
 
 # Questions
 If you have any questions, open an issue in the Issues tab or email us: deitel at deitel dot com.
