@@ -38,9 +38,13 @@ Copy **your system's version of this line** and paste it into your preferred web
 # Questions
 If you have any questions, open an issue in the Issues tab or email us: deitel at deitel dot com.
 
-# Our Books on Which These Examples Are Based \[NEW EDITIONS UNDER DEVELOPMENT\]
+# Our Videos/Books on Which These Examples Are Based 
+**\[NEW EDITIONS UNDER DEVELOPMENT\]**
 The content of this course is based on our book <a href=https://amzn.to/2Kd8dQk target="_blank">Python for Programmers</a>, which is a subset of our book <a href=https://amzn.to/2KfCptN target="_blank">Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud.</a> 
    
-![Cover image for Python for Programmers](https://deitel.com/wp-content/uploads/2020/01/python-for-programmers.jpg)
+<div style="float: left; padding-right:10px;text-align:center"><a href="https://learning.oreilly.com/videos/python-fundamentals/9780135917411"><img alt="Python Fundamentals LiveLessons cover" src="./images/PythonFundamentalsLiveLessons.jpg" width="200" border="1"/></a></br>50+ hours of in-depth videos</div>
+    <div style="float: left; padding-right:10px;text-align:center"><a href="https://learning.oreilly.com/library/view/intro-to-python/9780135404799/"><img alt="Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud" src="./images/IntroToPythonCover.png" width="195" border="1"></a><br/><a href="https://amzn.to/2LiDCmt">Buy on Amazon</a></div></div>
+    <div style="float: left; padding-right:10px;text-align:center"><a href="https://learning.oreilly.com/library/view/python-for-programmers/9780135231364"><img alt="Python for Programmers cover" src="./images/PyFPCover.png" width="184" border="1"/></a><br/><a href="https://amzn.to/2VvdnxE">Buy on Amazon</a></div>
+  
 
 The authors and publisher of this material have used their best efforts in preparing this material. These efforts include the development, research, and testing of the theories and programs to determine their effectiveness. The authors and publisher make no warranty of any kind, expressed or implied, with regard to these programs or to the documentation contained in this material. The authors and publisher shall not be liable in any event for incidental or consequential damages in connection with, or arising out of, the furnishing, performance, or use of these programs.
