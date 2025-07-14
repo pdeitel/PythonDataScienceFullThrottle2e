@@ -14,7 +14,7 @@ If you want to run the code, keep in mind that various examples require API keys
 ## Zero-Install MyBinder Environment
 I have set up the GitHub repository with a `Dockerfile` that enables you to load a zero-install environment in MyBinder.org:
 
-> `https://mybinder.org/v2/gh/pdeitel/PythonDataScienceFullThrottle2e/main?urlpath=lab`
+> https://mybinder.org/v2/gh/pdeitel/PythonDataScienceFullThrottle2e/main?urlpath=lab
 
 ## Docker
 Docker users can build a local container from the `Dockerfile` in the GitHub repository. These instructions assume you have Docker Desktop installed with support for the `docker compose` command and that you've downloaded or cloned this repository to your system. Comment out the `Dockerfile` line:  
