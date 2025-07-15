@@ -9,7 +9,7 @@ We're working on the second editions of our Python books and videos now. Early a
 Download or clone this repository's contents onto your system. **These files are for your personal use and may not be redistributed or reposted.**
 
 # Running the Code
-If you want to run the code, keep in mind that various examples require API keys that you'll need to aquire and add to the files. The notebooks indicate which keys you need and where to get them.
+If you want to run the code, keep in mind that various examples require API keys that you'll need to acquire and add to the files. The notebooks indicate which keys you need and where to get them.
 
 ## Zero-Install MyBinder Environment
 I have set up the GitHub repository with a `Dockerfile` that enables you to load a zero-install environment in MyBinder.org:
