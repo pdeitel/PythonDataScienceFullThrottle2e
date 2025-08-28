@@ -1,0 +1,339 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:11.000
+For our next test drive, we're going to take a look at executing a full Python program using the IPython interpreter at the command line once again.
+
+00:00:11.000 --> 00:00:20.000
+For the purpose of this particular demonstration, you are going to need to change into the examples folder containing the book's examples,
+
+00:00:20.000 --> 00:00:26.000
+and specifically the subfolder 01, which contains the stuff for this lesson.
+
+00:00:26.000 --> 00:00:34.000
+And in order to do that, I've provided the CD commands for Mac OS and Linux, as well as two different versions for Windows.
+
+00:00:34.000 --> 00:00:43.000
+So if you're a Mac OS or Linux user, you can use the shorthand tilde forward slash documents to go into your documents folder,
+
+00:00:43.000 --> 00:00:48.000
+and then the examples folder and the 01 folder.
+
+00:00:48.000 --> 00:00:56.000
+If you're on Windows, depending on which Anaconda command line you're using, the way that you change folders is a little bit different.
+
+00:00:56.000 --> 00:01:02.000
+So if you use the Anaconda prompt, which is based on the command prompt window in Microsoft Windows,
+
+00:01:02.000 --> 00:01:09.000
+your CD command is going to be percent user profile percent, which is your user folder on your system,
+
+00:01:09.000 --> 00:01:14.000
+and then backslash documents, backslash examples, backslash 01.
+
+00:01:14.000 --> 00:01:21.000
+If you're using the Anaconda PowerShell window, which also has some Mac OS Linux-like capabilities,
+
+00:01:21.000 --> 00:01:30.000
+in that case you're going to use the CD command with dollar home, backslash documents, backslash examples, backslash 01.
+
+00:01:30.000 --> 00:01:35.000
+So you may want to pause the video to copy down the proper command,
+
+00:01:35.000 --> 00:01:40.000
+and also I just want to remind you that if when you downloaded our code examples,
+
+00:01:40.000 --> 00:01:45.000
+you did not put the examples folder directly into your documents folder,
+
+00:01:45.000 --> 00:01:51.000
+or if you renamed it, you will obviously also need to go ahead and update these.
+
+00:01:51.000 --> 00:01:55.000
+For this demo, I'm once again starting from a fresh terminal window,
+
+00:01:55.000 --> 00:02:01.000
+just to remind you that if you're going to work with the custom environment we set up back in the Before You Begin lesson,
+
+00:02:01.000 --> 00:02:05.000
+you will need to activate that environment,
+
+00:02:05.000 --> 00:02:10.000
+and the activation needs to be done for every new terminal window you open.
+
+00:02:10.000 --> 00:02:15.000
+So if you close the last one, you are going to have to reactivate the environment.
+
+00:02:15.000 --> 00:02:20.000
+So I'm now in my Python 3.13 version of the environment,
+
+00:02:20.000 --> 00:02:25.000
+and currently I'm actually in my user accounts root folder,
+
+00:02:25.000 --> 00:02:29.000
+but I will type the CD command using that anyway.
+
+00:02:29.000 --> 00:02:36.000
+So tilde forward slash, no matter where you happen to be at any given time, will go to your user accounts folder,
+
+00:02:36.000 --> 00:02:39.000
+and I'm going to use a little command line auto-completion here.
+
+00:02:39.000 --> 00:02:43.000
+On Mac OS and Linux, your command lines are case sensitive,
+
+00:02:43.000 --> 00:02:48.000
+and I do have a folder that starts with capital D-O-C, which is my documents folder,
+
+00:02:48.000 --> 00:02:52.000
+so if I hit tab now, it'll auto-complete that for me,
+
+00:02:52.000 --> 00:02:58.000
+and for example, I can auto-complete the examples folder, and then finish this path off with the 01.
+
+00:02:58.000 --> 00:03:03.000
+Once you are in the folder, you can confirm its contents by listing them out.
+
+00:03:03.000 --> 00:03:06.000
+On Mac OS and Linux, that's going to be the L-S command.
+
+00:03:06.000 --> 00:03:10.000
+You can also use that in a Windows PowerShell as well.
+
+00:03:10.000 --> 00:03:14.000
+In a Windows regular command prompt or the Anaconda prompt,
+
+00:03:14.000 --> 00:03:20.000
+you can use the D-I-R command to get a directory listing, if you would like.
+
+00:03:20.000 --> 00:03:25.000
+The script that we're about to run in this case is called RollDyDynamic.py.
+
+00:03:25.000 --> 00:03:31.000
+It's a full Python program that we're actually going to build at the end of lesson six.
+
+00:03:31.000 --> 00:03:38.000
+It is a dynamic visualization that demonstrates the law of large numbers in action.
+
+00:03:38.000 --> 00:03:45.000
+In this script, we're going to roll a six-sided die, or I should say simulate rolling a six-sided die,
+
+00:03:45.000 --> 00:03:51.000
+and the more times we roll a six-sided die, if it's a balanced die,
+
+00:03:51.000 --> 00:03:58.000
+we should get approximately the same number of 1s, 2s, 3s, 4s, 5s, and 6s,
+
+00:03:58.000 --> 00:04:04.000
+about 16.667% of the total rolls.
+
+00:04:04.000 --> 00:04:08.000
+As I run this, I've set this script up with command line arguments
+
+00:04:08.000 --> 00:04:15.000
+that allow me to change how many dice I roll and how many animation frames I create as well,
+
+00:04:15.000 --> 00:04:19.000
+so that we can demonstrate this a couple of different ways.
+
+00:04:19.000 --> 00:04:24.000
+So as I do with interactive coding, even when I run scripts in these videos,
+
+00:04:24.000 --> 00:04:28.000
+I will use the IPython interpreter to run this script,
+
+00:04:28.000 --> 00:04:31.000
+and I'll use some command line auto-completion here.
+
+00:04:31.000 --> 00:04:37.000
+Just a reminder, when you're running a script, you can also run with the plain Python command,
+
+00:04:37.000 --> 00:04:40.000
+which you'll have with any Python distribution.
+
+00:04:40.000 --> 00:04:44.000
+This particular script does require two command line arguments.
+
+00:04:44.000 --> 00:04:49.000
+The first one is going to be the number of animation frames you would like to produce,
+
+00:04:49.000 --> 00:04:55.000
+and the second one is going to be the number of dice to simulate rolling per animation frame.
+
+00:04:55.000 --> 00:04:59.000
+So in this particular demo, we're only going to roll one die at a time,
+
+00:04:59.000 --> 00:05:04.000
+and we're going to do that 600 times overall in separate animation frames
+
+00:05:04.000 --> 00:05:12.000
+that summarize the rolls so far in a visualization called a bar plot.
+
+00:05:13.000 --> 00:05:16.000
+So now we can see the visualization on the screen.
+
+00:05:16.000 --> 00:05:20.000
+It's rolling one die at a time very rapidly at the moment,
+
+00:05:20.000 --> 00:05:23.000
+and we can kind of see the bars jumping and dancing,
+
+00:05:23.000 --> 00:05:27.000
+and at the top of every bar, we have the current die frequency
+
+00:05:27.000 --> 00:05:31.000
+and the percentage of the total die rolls overall.
+
+00:05:31.000 --> 00:05:37.000
+Now the bulk of this diagram was produced actually with a single line of code
+
+00:05:37.000 --> 00:05:41.000
+using a function from a library called Seaborn,
+
+00:05:41.000 --> 00:05:45.000
+which is a visualization library with lots of powerful features
+
+00:05:45.000 --> 00:05:53.000
+that sits on top of another very powerful visualization library called matplotlib.
+
+00:05:53.000 --> 00:05:57.000
+And Seaborn makes matplotlib easier to use, prettier,
+
+00:05:57.000 --> 00:06:04.000
+and also adds some of its own visualization capabilities on top of matplotlib as well.
+
+00:06:04.000 --> 00:06:08.000
+So when we do build this visualization at the end of lesson six,
+
+00:06:08.000 --> 00:06:12.000
+I'll show you the one method, or function rather,
+
+00:06:12.000 --> 00:06:15.000
+that produces the bulk of what you see here,
+
+00:06:15.000 --> 00:06:20.000
+and a lot of the code in that example is to do all the additional labeling in text
+
+00:06:20.000 --> 00:06:23.000
+that you see in this particular diagram.
+
+00:06:23.000 --> 00:06:26.000
+Now when you're doing a small number of rolls,
+
+00:06:26.000 --> 00:06:29.000
+the law of large numbers does not tend to play out.
+
+00:06:29.000 --> 00:06:33.000
+But if we have a good random number generator in Python,
+
+00:06:33.000 --> 00:06:39.000
+and we roll more dice over time, we should see these bars start to even out.
+
+00:06:39.000 --> 00:06:41.000
+So let's go ahead and run this again.
+
+00:06:41.000 --> 00:06:46.000
+I'll recall the last command that I executed at the command line with an up arrow.
+
+00:06:46.000 --> 00:06:52.000
+And let's roll, instead of one die per frame, let's roll 100 dice per frame.
+
+00:06:52.000 --> 00:06:55.000
+And so we can go ahead and rerun the simulation,
+
+00:06:56.000 --> 00:07:01.000
+and already we see that the bars are starting to even out in height.
+
+00:07:01.000 --> 00:07:05.000
+There's still clearly a difference in the heights of several of these bars,
+
+00:07:05.000 --> 00:07:09.000
+but they're all in the 16% range overall right now,
+
+00:07:09.000 --> 00:07:15.000
+and we're going to be doing a total of 60,000 die rolls in this simulation
+
+00:07:15.000 --> 00:07:19.000
+when we're doing 600 frames and 100 die rolls per frame.
+
+00:07:19.000 --> 00:07:22.000
+So as we can see, it's just finishing up now,
+
+00:07:22.000 --> 00:07:28.000
+and we did get pretty close to 16.667% across the board,
+
+00:07:28.000 --> 00:07:33.000
+but a little bit above and a little bit below, mostly, in this demonstration.
+
+00:07:33.000 --> 00:07:38.000
+And of course, we can do it again and roll many more dice per animation frame.
+
+00:07:38.000 --> 00:07:42.000
+Let's jack that up to, say, 10,000 dice per frame.
+
+00:07:42.000 --> 00:07:45.000
+So now we're going to do a million.
+
+00:07:45.000 --> 00:07:51.000
+We should expect, rather, a million dice of each total overall.
+
+00:07:51.000 --> 00:07:53.000
+And we'll go ahead and run that, and right away,
+
+00:07:53.000 --> 00:07:59.000
+we start seeing those bars evening out a lot faster overall.
+
+00:07:59.000 --> 00:08:03.000
+And if we let this play out to the full 6 million die rolls
+
+00:08:03.000 --> 00:08:08.000
+that we're doing at the moment, we should see these all zeroing in
+
+00:08:08.000 --> 00:08:12.000
+pretty close to 16.6-something percent,
+
+00:08:12.000 --> 00:08:15.000
+and we can already see that's playing out here.
+
+00:08:15.000 --> 00:08:17.000
+If you look at the numbers as they jump and dance,
+
+00:08:17.000 --> 00:08:19.000
+this one's a little bit higher at the moment,
+
+00:08:19.000 --> 00:08:22.000
+but we should see that start to come back down.
+
+00:08:22.000 --> 00:08:25.000
+And in fact, they all finished at the 16.6%
+
+00:08:25.000 --> 00:08:29.000
+with a little bit higher number on the purple bar
+
+00:08:29.000 --> 00:08:32.000
+than most of the other ones overall.
+
+00:08:32.000 --> 00:08:36.000
+And if we keep rolling this, and it's a really good random number generator,
+
+00:08:36.000 --> 00:08:39.000
+over time, we should start to see every single one of these
+
+00:08:39.000 --> 00:08:44.000
+top out at 16.667% overall.
+
+00:08:44.000 --> 00:08:49.000
+So kind of a fun way to demonstrate the law of large numbers in action.
+
+00:08:49.000 --> 00:08:53.000
+And with this visualization, as soon as you close the window
+
+00:08:53.000 --> 00:08:56.000
+that's running it, the program terminates,
+
+00:08:56.000 --> 00:08:58.000
+and now you're back to your command line
+
+00:08:58.000 --> 00:09:01.000
+where you can do your other commands.
+
+
