@@ -63,7 +63,8 @@ RUN pip install --no-cache-dir \
     openai \
     deepl \
     better_profanity \
-    pyspark==3.5.0
+    pyspark==3.5.0 \
+    playsound     
 
 # Download NLTK corpora and TextBlob data
 RUN python -m textblob.download_corpora && \
