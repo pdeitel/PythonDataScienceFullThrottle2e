@@ -57,7 +57,7 @@ RUN pip install --no-cache-dir \
     dnspython \
     pubnub \
     beautifulsoup4 \
-    Mastodon.py>=2.1.4 \
+    Mastodon.py==2.1.4 \
     geopy \
     tweet-preprocessor \
     openai \
