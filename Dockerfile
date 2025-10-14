@@ -57,14 +57,14 @@ RUN pip install --no-cache-dir \
     dnspython \
     pubnub \
     beautifulsoup4 \
-    Mastodon.py \
+    Mastodon.py>=2.1.4 \
     geopy \
     tweet-preprocessor \
     openai \
     deepl \
     better_profanity \
     pyspark==3.5.0 \
-    playsound     
+    playsound 
 
 # Download NLTK corpora and TextBlob data
 RUN python -m textblob.download_corpora && \
@@ -74,9 +74,6 @@ RUN python -m textblob.download_corpora && \
 RUN python -m spacy download en_core_web_sm && \
     python -m spacy download en_core_web_md && \
     python -m spacy download en_core_web_lg
-
-# copy repo files -- COMMENT OUT THIS LINE WHEN BUILDING A LOCAL DOCKER CONTAINER ON YOUR COMPUTER
-COPY . /home/jovyan/
 
 # Expose Jupyter, Spark UI, Dash ports
 EXPOSE 8888 4040 8050
