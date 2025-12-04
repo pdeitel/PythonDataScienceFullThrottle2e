@@ -6,7 +6,7 @@ USER root
 
 # Add Java and dependencies for Spark
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    openjdk-11-jdk \
+    openjdk-21-jdk \
     curl \
     build-essential \
     libjpeg-dev \
@@ -20,12 +20,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Dynamically detect JAVA_HOME and create symlink for Spark compatibility
 RUN JAVA_PATH=$(dirname $(dirname $(readlink -f $(which java)))) && \
-    ln -s "$JAVA_PATH" /usr/lib/jvm/java-11-openjdk-amd64 && \
+    ln -s "$JAVA_PATH" /usr/lib/jvm/java-21-openjdk-amd64 && \
     echo "export JAVA_HOME=$JAVA_PATH" >> /etc/profile.d/java_home.sh && \
     echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> /etc/profile.d/java_home.sh
 
 # Set the environment variables so Spark and subprocesses can find Java
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Download and install Apache Spark from the reliable archive URL
@@ -44,8 +44,8 @@ USER ${NB_UID}
 
 # Install Python packages (includes plotly, dash, pyspark)
 RUN pip install --no-cache-dir \
-    numpy==1.26.4 \
-    scipy==1.11.4 \
+    numpy \
+    scipy \
     spacy \
     wordcloud \
     textblob \
@@ -57,7 +57,7 @@ RUN pip install --no-cache-dir \
     dnspython \
     pubnub \
     beautifulsoup4 \
-    Mastodon.py>=2.1.4 \
+    'Mastodon.py>=2.1.4' \
     geopy \
     tweet-preprocessor \
     openai \
@@ -74,6 +74,8 @@ RUN python -m textblob.download_corpora && \
 RUN python -m spacy download en_core_web_sm && \
     python -m spacy download en_core_web_md && \
     python -m spacy download en_core_web_lg
+
+COPY . /home/jovyan/
 
 # Expose Jupyter, Spark UI, Dash ports
 EXPOSE 8888 4040 8050

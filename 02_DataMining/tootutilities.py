@@ -16,7 +16,7 @@ from IPython.display import display, HTML
 profanity.load_censor_words()
 
 # translator to autodetect source language and return English
-translator = deepl.Translator(keys_mastodon.deepL_key)
+translator = deepl.Translator(keys_mastodon.deepL_key2)
 
 # tweet-preprocessor remove @ mentions, emojis, hashtags, URLs
 p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.HASHTAG, p.OPT.URL)
