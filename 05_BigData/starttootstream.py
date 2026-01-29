@@ -2,8 +2,7 @@
 """Script to get tweets on topic(s) specified as script argument(s) 
    and send tweet text to a socket for processing by Spark."""
 import keys_mastodon
-from mastodon import Mastodon
-from mastodon import StreamListener
+from mastodon import Mastodon, MastodonMalformedEventError, StreamListener
 import socket
 import sys
 import re
@@ -92,7 +91,16 @@ if __name__ == '__main__':
     toot_listener = TootListener(connection, limit=toot_limit)
     
     # start the public federated stream and store the stream handle
-    mastodon.stream_public(toot_listener, run_async=False)
+    while True:
+        try:
+            mastodon.stream_public(toot_listener, run_async=False)
+        except MastodonMalformedEventError as e:
+            # Ignore occasional malformed streaming events (e.g., missing 'event' field)
+            print(f'Ignoring malformed stream event: {e}')
+            continue
+        except SystemExit:
+            # Preserve your TOOT_LIMIT termination behavior (sys.exit in on_update)
+            raise
 
     
 ##########################################################################

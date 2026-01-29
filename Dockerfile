@@ -75,7 +75,5 @@ RUN python -m spacy download en_core_web_sm && \
     python -m spacy download en_core_web_md && \
     python -m spacy download en_core_web_lg
 
-COPY . /home/jovyan/
-
 # Expose Jupyter, Spark UI, Dash ports
 EXPOSE 8888 4040 8050
