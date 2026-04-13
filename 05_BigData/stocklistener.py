@@ -20,7 +20,7 @@ companies = ['Apple', 'Bespin Gas', 'Elerium', 'Google', 'Linen Cloth']
 
 # DataFrame to store last stock prices 
 companies_df = pd.DataFrame(
-    {'company': companies, 'price' : [0, 0, 0, 0, 0]})
+    {'company': companies, 'price' : [0.0] * len(companies)})
  
 class StockSubscriberCallback(SubscribeCallback):
     """StockSubscriberCallback receives messages from PubNub."""

@@ -1,0 +1,97 @@
+# Conda environment for Windows x86-64
+#
+# Create : conda env create -f environment-win-x64.yml
+# Activate: conda activate pydsft
+#
+# After activation, run the post-install steps at the bottom of this file.
+#
+# NOTE: Java 17 is the latest LTS officially supported by PySpark 3.5.x.
+
+name: pydsft
+
+channels:
+  - conda-forge
+  # 'defaults' is intentionally omitted: mixing conda-forge and defaults causes
+  # Intel OpenMP (libiomp, from MKL/defaults) and LLVM OpenMP (libomp, from
+  # conda-forge packages) to load together, triggering crashes and warnings.
+  # Using conda-forge exclusively keeps all packages on LLVM OpenMP.
+
+dependencies:
+  # ── Runtime ────────────────────────────────────────────────────────────────
+  - python=3.11
+  - openjdk=17          # LTS; PySpark 3.5.x officially supports Java 8/11/17
+
+  # ── BLAS / OpenMP: force OpenBLAS to avoid Intel MKL / LLVM OpenMP conflict
+  - libblas=*=*openblas
+
+  # ── Jupyter stack ──────────────────────────────────────────────────────────
+  - jupyterlab=4
+  - notebook
+  - ipykernel
+  - ipywidgets
+  - ipympl>=0.9          # enables %matplotlib widget; must be compatible with jupyterlab major version
+
+  # ── Core scientific stack ──────────────────────────────────────────────────
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - scikit-learn
+  - pillow
+  - imageio
+  - statsmodels
+  - python-dotenv
+
+  # ── pip-installed packages ─────────────────────────────────────────────────
+  - pip
+  - pip:
+    # TensorFlow — standard x64 wheel; Keras is bundled.
+    - tensorflow
+
+    # Big Data
+    - pyspark==3.5.0
+
+    # NLP
+    - spacy
+    - wordcloud
+    - textblob
+    - nltk
+
+    # Geo / mapping
+    - folium
+    - geopy
+
+    # Visualisation / dashboards
+    - plotly
+    - dash
+
+    # Databases / networking
+    - pymongo
+    - dnspython
+
+    # Social / messaging
+    - pubnub
+    - "Mastodon.py>=2.2.1"
+    - tweet-preprocessor
+
+    # AI / translation / moderation
+    - openai
+    - deepl
+    - better_profanity
+
+    # Audio — requires pyglet on Windows; omit if install fails
+    - playsound3
+
+# ── Post-install steps (run once after `conda activate pydsft`) ─────────────
+#
+#   python -m spacy download en_core_web_sm
+#   python -m spacy download en_core_web_md
+#   python -m spacy download en_core_web_lg
+#
+#   python -m textblob.download_corpora
+#
+#   python -c "import nltk; nltk.download('punkt'); nltk.download('wordnet'); nltk.download('stopwords')"
+#
+#   # Verify key packages
+#   python -c "import sklearn; import tensorflow as tf; import pyspark; print('All OK')"
