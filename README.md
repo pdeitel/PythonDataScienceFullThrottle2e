@@ -1,9 +1,10 @@
-©️ Copyright 2025 by Deitel & Associates, Inc. and Pearson Education, Inc. All Rights Reserved. 
+©️ Copyright 2026 by Deitel & Associates, Inc. and Pearson Education, Inc. All Rights Reserved. 
 
 # PythonDataScienceFullThrottle2e
-This is the new repository for my  **Python Data Science Full Throttle: Introductory Artificial Intelligence (AI), Big Data and Cloud Case Studies** live training on [O'Reilly Online Learning](https://learning.oreilly.com/live-events/python-data-science-full-throttle-with-paul-deitel-introductory-artificial-intelligence-ai-big-data-and-cloud-case-studies/0636920289197/).
+This is the repository for my  **Python Data Science Full Throttle: Introductory Artificial Intelligence (AI), Big Data and Cloud Case Studies** live training on O'Reilly Online Learning
+https://learning.oreilly.com/live-events/python-data-science-ai-full-throttle-with-paul-deitel-introductory-ai-big-data-cloud-genai-case-studies/0642572313494/0642572313487/
 
-We're working on the second editions of our Python books and videos now. Early access to some of those new materials will be available to you through this course and eventually my Python Fundamentals LiveLessons Sneak Peek. We'll be updating the videos in place in the current product at: https://learning.oreilly.com/api/v1/continue/9780135917411/ 
+We're working on the second editions of our Python books and videos now. Early access to some of those new materials will be available to you through this course and eventually my Python Fundamentals LiveLessons Sneak Peek. We're updating the videos in place in the current product at: https://learning.oreilly.com/course/python-fundamentals-with/9780135917411/
 
 # Getting the Code
 Download or clone this repository's contents onto your system. **These files are for your personal use and may not be redistributed or reposted.**
@@ -11,32 +12,72 @@ Download or clone this repository's contents onto your system. **These files are
 # Running the Code
 If you want to run the code, keep in mind that various examples require API keys that you'll need to acquire and add to the files. The notebooks indicate which keys you need and where to get them.
 
-## Zero-Install MyBinder Environment
-I have set up the GitHub repository with a `Dockerfile` that enables you to load a zero-install environment in MyBinder.org:
+## `pydsft` — Local Conda Environment Setup
+This folder contains conda environment definitions and setup scripts for running the notebooks locally. There are two configurations:
 
-> https://mybinder.org/v2/gh/pdeitel/PythonDataScienceFullThrottle2e/main?urlpath=lab
+| File | Platform |
+|------|----------|
+| `environment-mac-arm.yml` | Apple Silicon (M1/M2/M3/M4) |
+| `environment-win-x64.yml` | Windows x86-64 |
+| `setup-mac-arm.sh` | Mac ARM setup script |
+| `setup-win-x64.ps1` | Windows x64 setup script |
 
-## Docker
-Docker users can build a local container from the `Dockerfile` in the GitHub repository. These instructions assume you have Docker Desktop installed with support for the `docker compose` command and that you've downloaded or cloned this repository to your system. Comment out the `Dockerfile` line:  
+The setup scripts are the recommended way to install. They create the conda environment from the appropriate `.yml` file, then automatically run all required post-install steps (spaCy models, TextBlob corpora, NLTK data).
 
-> `COPY . /home/jovyan/`
-> 
-by inserting a `#` before the line as in  
+### Prerequisites
 
-> `# COPY . /home/jovyan/`
+- **Conda** — [Anaconda](https://www.anaconda.com/download) or
+  [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+- **Git** — required by pip to install any packages directly from GitHub
+- **Mac ARM only:** Xcode Command Line Tools — run `xcode-select --install`
+  if you have not done so already
 
-(or simply delete that line.) From a **Terminal** window (Mac) or a **Command Prompt** or **Powershell** window (Windows) change to the root folder of the repository, then execute: 
+### Mac ARM (Apple Silicon) Setup
 
-> `docker compose up`
+Open a Terminal and run:
 
-Once this finishes building the container, which can take several minutes depending on your connection speed, you'll see a line of text similar to the following:
+```bash
+bash setup-mac-arm.sh
+```
 
-> `http://127.0.0.1:8888/lab?token=fb59401a105a0c5a45c52eff8e1a8469f508cad1f3a8be06`
+The script will:
 
-Copy **your system's version of this line** and paste it into your preferred web browser to launch JupyterLab.
+1. Create (or update) the `pydsft` conda environment from `environment-mac-arm.yml`
+2. Download the three spaCy English models (`sm`, `md`, `lg`)
+3. Download the TextBlob corpora
+4. Download the NLTK datasets (`punkt`, `punkt_tab`, `wordnet`, `stopwords`)
+5. Run a smoke test confirming scikit-learn, TensorFlow, PySpark, and spaCy all import correctly
 
-# Questions
-If you have any questions, open an issue in the Issues tab or email us: deitel at deitel dot com.
+Once complete, activate the environment and launch JupyterLab:
+
+```bash
+conda activate pydsft
+jupyter lab
+```
+
+### Windows x64 Setup
+
+Open an **Anaconda PowerShell Prompt** and run:
+
+```powershell
+.\setup-win-x64.ps1
+```
+
+If you see an execution policy error, run this once first, then retry:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+The script performs the same steps as the Mac script (see above).
+
+Once complete, activate the environment and launch JupyterLab:
+
+```powershell
+conda activate pydsft
+jupyter lab
+```
+
 
 # Our Videos/Books on Which These Examples Are Based 
 **\[NEW EDITIONS UNDER DEVELOPMENT\]**
