@@ -78,6 +78,8 @@ conda activate pydsft
 jupyter lab
 ```
 
+# Questions
+If you have any questions, open an issue in the Issues tab or email us: deitel at deitel dot com.
 
 # Our Videos/Books on Which These Examples Are Based 
 **\[NEW EDITIONS UNDER DEVELOPMENT\]**
