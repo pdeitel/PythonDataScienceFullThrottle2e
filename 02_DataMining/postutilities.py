@@ -64,6 +64,7 @@ def get_geocodes(post_list):
         while not processed:
             try:
                 geo_location = geo.geocode(post['location'])
+                print(f"{post['location']}: {geo_location}")
                 processed = True
             except Exception:
                 print('ArcGIS timed out. Waiting.')
@@ -81,7 +82,7 @@ def get_geocodes(post_list):
 
 
 ##########################################################################
-# (C) Copyright 2026 by Deitel & Associates, Inc. and                    #
+# (C) Copyright 2025 by Deitel & Associates, Inc. and                    #
 # Pearson Education, Inc. All Rights Reserved.                           #
 #                                                                        #
 # DISCLAIMER: The authors and publisher of this book have used their     #

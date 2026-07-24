@@ -4,7 +4,9 @@
 def text_to_speech(client, text, path, voice, instructions=''):
     """Synthesizes speech from the provided text and 
     writes it to the file specified by path."""
-    response = client.audio.speech.create(model='gpt-4o-mini-tts',
+    # 'tts-1-hd' is the latest but it's not following instructions
+    response = client.audio.speech.create(
+        model='gpt-4o-mini-tts',
         voice=voice, input=text, instructions=instructions)
 
     response.write_to_file(str(path))

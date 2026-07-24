@@ -26,7 +26,7 @@ def describe_image(client, prompt, path_to_image):
     # can provide a prompt via a dict containing the key-value pair 
     # 'type': 'input_text' and the key 'text' with the prompt as a value.
     response = client.responses.create(
-        model='gpt-5.4-mini',
+        model='gpt-5.6-terra',
         instructions=instructions,
         input=[
             {

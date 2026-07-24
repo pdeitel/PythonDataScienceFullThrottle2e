@@ -8,7 +8,7 @@ def translate(client, text, language):
     instructions = f"""You are an expert in natural language translation.
         Translate the input text into {language}."""
     
-    response = client.responses.create(model='gpt-5.4-mini',
+    response = client.responses.create(model='gpt-5.6-terra',
         instructions=instructions, input=text)
     
     return response.output_text

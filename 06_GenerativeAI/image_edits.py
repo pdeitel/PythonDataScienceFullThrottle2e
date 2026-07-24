@@ -8,11 +8,11 @@ import util # for our utility functions in util.py
 def restyle_with_images_api(
     client, image_path, output_path, size, style_prompt):
     """Restyles a photo using a style prompt. 
-    Uses gpt-image-1 via the Images Edits API. """
+    Uses gpt-image-2 via the Images Edits API. """
 
     # perform style-transfer edit via a text prompt
     with open(image_path, 'rb') as image_file:
-        response = client.images.edit(model='gpt-image-1.5',
+        response = client.images.edit(model='gpt-image-2',
             image=image_file, size=size, prompt=style_prompt)
 
     # output bytes to path    
@@ -22,14 +22,14 @@ def restyle_with_images_api(
 def restyle_with_responses_api(client, to_image_path, from_image_path, 
     output_path, size, style_prompt=None):
     """Restyles a photo using the style of another image 
-    via the Responses API and the gpt-5-mini model."""
+    via the Responses API."""
 
     prompt = f"""Apply the style of the second image to the first. 
         Keep the subject's identity and layout. Output size: {size}.
         Additional details from caller: {(style_prompt or 'None')}""" 
 
     response = client.responses.create(
-        model='gpt-5.4-mini',
+        model='gpt-5.6-terra',
         tools=[{'type': 'image_generation'}],
         input=[{
             'role': 'user',
